@@ -14,9 +14,9 @@ export async function GET() {
   } catch (e) {
     const m = String((e as Error).message);
     mongo = (e as Error).name;
-    hint = /Authentication|auth/i.test(m)
+    hint = /Authentication failed|bad auth/i.test(m)
       ? "Wrong or missing Mongo_DB_USer / Mongo_DB_Pass"
-      : /timeout|ServerSelection|ECONNREFUSED|ENOTFOUND/i.test(m)
+      : /timeout|ServerSelection|ECONNREFUSED|ENOTFOUND/i.test(`${mongo} ${m}`)
         ? "Atlas is not reachable: add 0.0.0.0/0 under Network Access (and check the user/pass vars)"
         : "See the Vercel runtime logs for details";
     console.error("health: mongo check failed", m);
