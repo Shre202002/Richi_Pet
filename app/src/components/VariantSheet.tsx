@@ -1,6 +1,6 @@
 "use client";
 import { X } from "lucide-react";
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useCart } from "@/lib/cart";
@@ -38,7 +38,7 @@ export default function VariantSheet({ p, onClose }: { p: Product; onClose: () =
             return (
               <li key={v.id} className={`flex items-center gap-3 rounded-2xl border bg-white p-2.5 ${qty(v.id) ? "border-brand" : "border-neutral-200"}`}>
                 <div className="relative size-16 shrink-0 overflow-hidden rounded-xl border border-neutral-100 bg-white">
-                  <Image src={v.image} alt="" fill sizes="64px" className="object-contain" />
+                  <SmartImage src={v.image} alt="" fill sizes="64px" className="object-contain" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-bold">{v.label || p.name}</p>

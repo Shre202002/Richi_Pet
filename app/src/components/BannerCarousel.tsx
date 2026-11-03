@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ export default function BannerCarousel() {
               <p className="mt-1 text-sm text-white/80">{b.s}</p>
             </div>
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-white md:h-28 md:w-28 lg:h-36 lg:w-36">
-              <Image src={b.img} alt="" fill sizes="144px" className="object-contain" />
+              <SmartImage src={b.img} alt="" fill sizes="144px" className="object-contain" />
             </div>
           </Link>
         ))}

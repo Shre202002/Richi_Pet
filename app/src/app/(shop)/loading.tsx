@@ -1,3 +1,5 @@
+import { PageSkeleton } from "@/components/Skeletons";
+
 export default function Loading() {
-  return <div className="p-8 text-center text-neutral-500">Loading…</div>;
+  return <PageSkeleton />;
 }

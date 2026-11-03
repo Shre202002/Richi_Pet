@@ -1,4 +1,5 @@
 "use client";
+import { ListSkeleton } from "./Skeletons";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { inr } from "@/lib/catalog";
@@ -10,7 +11,7 @@ const when = (iso: string) =>
 export function OrderDetail({ id }: { id: string }) {
   const orders = useOrders();
   const order: Order | undefined = orders?.find((o) => o.id === id);
-  if (!orders) return <main className="mx-auto max-w-2xl p-6 text-neutral-500">Loading…</main>;
+  if (!orders) return <ListSkeleton />;
   if (!order)
     return (
       <main className="mx-auto max-w-md px-4 py-20 text-center">
@@ -58,7 +59,7 @@ export function OrderDetail({ id }: { id: string }) {
 
 export function OrderList() {
   const orders = useOrders();
-  if (!orders) return <main className="mx-auto max-w-3xl p-6 text-neutral-500">Loading…</main>;
+  if (!orders) return <ListSkeleton />;
   return (
     <main className="mx-auto w-full max-w-3xl p-4 md:p-6">
       <h1 className="hidden pb-4 text-2xl font-extrabold lg:block">My orders</h1>

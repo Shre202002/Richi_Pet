@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { hasOptions, inr, pctOff, type Product } from "@/lib/catalog";
 import VariantAdd from "./VariantAdd";
@@ -14,7 +14,7 @@ export default function ProductCard({ p, className = "w-full" }: { p: Product; c
       <div className="relative">
         <Link href={`/product/${p.id}`} className="block" aria-label={p.name}>
           <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
-            <Image src={p.image} alt={p.name} fill sizes="(min-width:1024px) 16vw, (min-width:768px) 23vw, 44vw" className="object-contain" />
+            <SmartImage src={p.image} alt={p.name} fill sizes="(min-width:1024px) 16vw, (min-width:768px) 23vw, 44vw" className="object-contain" />
             {off > 0 && <span className="absolute left-0 top-0 rounded-br-lg bg-green-600 px-1.5 py-0.5 text-[10px] font-bold text-white">{off}% OFF</span>}
           </div>
         </Link>

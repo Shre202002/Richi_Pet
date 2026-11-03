@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import BottomNav from "@/components/BottomNav";
 import CartBar from "@/components/CartBar";
 import SiteFooter from "@/components/SiteFooter";
+import { PageSkeleton } from "@/components/Skeletons";
 import TopNav from "@/components/TopNav";
 import { PRICES_ARE_SAMPLE } from "@/lib/catalog";
 
@@ -14,7 +15,7 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
           Sample prices shown. Final wholesale prices load from the price list.
         </p>
       )}
-      <Suspense fallback={<div className="p-8 text-center text-neutral-500">Loading…</div>}>{children}</Suspense>
+      <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
       <SiteFooter />
       <Suspense fallback={null}><CartBar /></Suspense>
       <Suspense fallback={null}><BottomNav /></Suspense>

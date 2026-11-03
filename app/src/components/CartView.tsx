@@ -1,6 +1,7 @@
 "use client";
+import { ListSkeleton } from "./Skeletons";
 import { Trash2 } from "lucide-react";
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { useEffect } from "react";
 import { inr } from "@/lib/catalog";
@@ -26,7 +27,7 @@ export default function CartView({ products }: { products: MiniProduct[] }) {
     Object.keys(lines).filter((id) => !known.has(id)).forEach(remove);
   }, [hydrated, lines, products, remove]);
 
-  if (!hydrated) return <main className="mx-auto max-w-7xl p-6 text-neutral-500">Loading cart…</main>;
+  if (!hydrated) return <ListSkeleton />;
   if (rows.length === 0)
     return (
       <main className="mx-auto max-w-md px-4 py-20 text-center">
@@ -46,7 +47,7 @@ export default function CartView({ products }: { products: MiniProduct[] }) {
             return (
               <li key={p.id} className="flex items-center gap-3 px-4 py-3">
                 <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-neutral-200 bg-white">
-                  <Image src={p.image} alt={p.name} fill sizes="64px" className="object-contain" />
+                  <SmartImage src={p.image} alt={p.name} fill sizes="64px" className="object-contain" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <Link href={`/product/${p.productId}`} className="block truncate text-sm font-bold">{p.name}</Link>

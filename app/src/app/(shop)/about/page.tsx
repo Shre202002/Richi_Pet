@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Logo from "@/components/Logo";
 
-export const metadata: Metadata = { title: "About | Richi's PET Stuff" };
+export const metadata: Metadata = { title: "About us", description: "Richi's PET Stuff: premium pet products, retail and wholesale enquiries, bulk orders welcome. Pimpri Chinchwad, Maharashtra." };
 
 // Content from the client's WhatsApp Business profile.
 const ADDRESS = "Mhada Colony Road, Sant Dnyaneshwar Nagar, Pimpri Chinchwad 411018, Maharashtra, India";

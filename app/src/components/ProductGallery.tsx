@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import { useEffect, useRef, useState } from "react";
 
 // Swipeable (scroll-snap) image gallery with a thumbnail strip. `focus` jumps to an image (e.g. the chosen size).
@@ -26,7 +26,7 @@ export default function ProductGallery({ images, name, focus }: { images: string
       >
         {images.map((src, i) => (
           <div key={src + i} className="relative h-full w-full shrink-0 snap-center">
-            <Image src={src} alt={`${name} - image ${i + 1}`} fill priority={i === 0} sizes="(min-width:1024px) 40vw, (min-width:768px) 448px, 100vw" className="object-contain p-4" />
+            <SmartImage src={src} alt={`${name} - image ${i + 1}`} fill priority={i === 0} sizes="(min-width:1024px) 40vw, (min-width:768px) 448px, 100vw" className="object-contain p-4" />
           </div>
         ))}
       </div>
@@ -39,7 +39,7 @@ export default function ProductGallery({ images, name, focus }: { images: string
             {images.map((src, i) => (
               <button key={src + i} onClick={() => go(i)} aria-label={`Show image ${i + 1}`} aria-current={i === a}
                 className={`relative size-16 shrink-0 overflow-hidden rounded-xl border-2 bg-white ${i === a ? "border-brand" : "border-neutral-200"}`}>
-                <Image src={src} alt="" fill sizes="64px" className="object-contain" />
+                <SmartImage src={src} alt="" fill sizes="64px" className="object-contain" />
               </button>
             ))}
           </div>

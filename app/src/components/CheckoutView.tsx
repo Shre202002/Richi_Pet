@@ -1,4 +1,5 @@
 "use client";
+import { ListSkeleton } from "./Skeletons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -25,7 +26,7 @@ export default function CheckoutView({ products }: { products: MiniProduct[] }) 
   const needShop = me.loaded && me.staff && !shop;
   const rows = products.filter((p) => lines[p.id]);
 
-  if (!hydrated) return <main className="mx-auto max-w-7xl p-6 text-neutral-500">Loading…</main>;
+  if (!hydrated) return <ListSkeleton />;
   if (rows.length === 0 && !placing)
     return (
       <main className="mx-auto max-w-md px-4 py-20 text-center">

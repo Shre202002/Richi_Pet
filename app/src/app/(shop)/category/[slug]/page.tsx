@@ -1,4 +1,4 @@
-import Image from "next/image";
+import SmartImage from "@/components/SmartImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -43,7 +43,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps<"
                   className={`relative flex flex-col items-center gap-1 px-1 py-3 text-center text-[11px] font-semibold leading-tight ${on ? "bg-brand-soft text-brand-dark" : "text-neutral-600"}`}>
                   {on && <span className="absolute inset-y-2 left-0 w-1 rounded-r bg-brand" />}
                   <span className="relative grid size-12 place-items-center overflow-hidden rounded-xl border border-neutral-200 bg-white">
-                    {c.image ? <Image src={c.image} alt="" fill sizes="48px" className="object-contain p-0.5" /> : <span className="text-base font-extrabold">All</span>}
+                    {c.image ? <SmartImage src={c.image} alt="" fill sizes="48px" className="object-contain p-0.5" /> : <span className="text-base font-extrabold">All</span>}
                   </span>
                   {c.name}
                 </Link>
