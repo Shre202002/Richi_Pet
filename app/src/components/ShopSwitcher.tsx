@@ -13,13 +13,7 @@ export default function ShopSwitcher({ className = "" }: { className?: string })
   const [open, setOpen] = useState(false);
   const base = `block max-w-full truncate text-xs ${className}`;
 
-  if (!me.loaded || !me.role) {
-    return (
-      <span className={`${base} text-white/70`}>
-        Wholesale ordering{me.loaded && <> · <Link href="/login" className="font-bold text-white underline">Log in</Link></>}
-      </span>
-    );
-  }
+  if (!me.loaded || !me.role) return null; // guests see nothing under the brand name
   if (!me.staff) {
     return <span className={`${base} font-semibold text-white`}>{me.name}{me.shop ? ` · ${me.shop.name}` : ""}</span>;
   }
