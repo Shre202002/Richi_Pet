@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CartLink from "./CartLink";
+import LoginButton from "./LoginButton";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
 import ShopSwitcher from "./ShopSwitcher";
@@ -16,7 +17,7 @@ export default function Header() {
             <ShopSwitcher />
           </span>
         </div>
-        <CartLink />
+        <div className="flex items-center gap-1"><LoginButton /><CartLink /></div>
       </div>
       <SearchBox className="mt-3" />
     </header>

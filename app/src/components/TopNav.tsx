@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CartLink from "./CartLink";
+import LoginButton from "./LoginButton";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
 import ShopSwitcher from "./ShopSwitcher";
@@ -41,6 +42,7 @@ export default function TopNav() {
             );
           })}
         </nav>
+        <LoginButton />
         <CartLink label />
       </div>
     </header>

@@ -2,6 +2,7 @@
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CartLink from "./CartLink";
+import LoginButton from "./LoginButton";
 import ShopSwitcher from "./ShopSwitcher";
 
 // Compact back-header for inner pages (mobile/tablet). Hidden on desktop where TopNav shows.
@@ -16,6 +17,7 @@ export default function PageHeader({ title, cart = true }: { title: string; cart
         <h1 className="truncate text-lg font-bold">{title}</h1>
         <ShopSwitcher className="text-[11px]" />
       </div>
+      <LoginButton />
       {cart && <CartLink />}
     </header>
   );

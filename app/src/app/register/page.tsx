@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import AuthTabs from "@/components/AuthTabs";
 import { clearCart, useCart } from "@/lib/cart";
 import { inr } from "@/lib/catalog";
 import { useHydrated } from "@/lib/hydrated";
@@ -50,6 +51,7 @@ export default function Register() {
   const cls = "rounded border p-3";
   return (
     <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-4 p-4">
+      <AuthTabs active="register" />
       <h1 className="text-2xl font-bold">{hasCart ? "Register to place your order" : "Register your shop"}</h1>
       {hasCart && (
         <p className="rounded-xl bg-brand-soft p-3 text-sm">
