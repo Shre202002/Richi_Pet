@@ -5,7 +5,7 @@ import { db } from "@/lib/mongo";
 const VARS = ["Mongo_DB_USer", "Mongo_DB_Pass", "AUTH_SECRET", "ADMIN_EMAIL", "ADMIN_PASSWORD"] as const;
 
 export async function GET() {
-  const env = Object.fromEntries(VARS.map((k) => [k, !!process.env[k]]));
+  const env = Object.fromEntries(VARS.map((k) => [k, !!process.env[k] || (k === "Mongo_DB_USer" && !!process.env.Mongo_DB_User)]));
   let mongo = "ok";
   let hint = "";
   try {

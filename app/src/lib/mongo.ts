@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { connection } from "next/server";
 
-const u = encodeURIComponent(process.env.Mongo_DB_USer!);
+const u = encodeURIComponent((process.env.Mongo_DB_USer ?? process.env.Mongo_DB_User)!);
 const p = encodeURIComponent(process.env.Mongo_DB_Pass!);
 export const MONGO_URI = `mongodb+srv://${u}:${p}@cluster1.ab3azex.mongodb.net/`;
 
