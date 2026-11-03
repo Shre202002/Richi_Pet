@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f6f2;
+  --foreground: #161a12;
+}
+
+/* Palette sampled from the Richi's logo: olive green, black, white. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: #52702f; /* buttons, active states (white text passes AA) */
+  --color-brand-dark: #425a26;
+  --color-brand-logo: #668247; /* logo green: accents, icons on dark */
+  --color-brand-soft: #eef3e8;
+  --color-ink: #0b0b0b;
+  --color-accent: #f26a2e; /* admin dashboard accent */
+  --color-accent-soft: #fff1ea;
+  --color-surface: #f3f3f1;
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+:focus-visible { outline: 2px solid var(--color-brand-logo); outline-offset: 2px; }
+
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.sheet-up { animation: sheet-up .22s ease-out; }
+.fade-in { animation: fade-in .2s ease-out; }
+@media print { .no-print { display: none !important; } }
